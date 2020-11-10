@@ -74,7 +74,7 @@ Code we used to work with predicates such as getting their average subject bindi
    Each .json file contains is the serialized from of QueryWrapper.java and contains the following fields:
      1. a unique query id
      2. the SPARQL query
-     3. it's equivalent SPARQL-LD query
+     3. its equivalent SPARQL-LD query
      4. the query pattern
      5. the real cost we got when executing the query (see timestamp below)
      6. the method 1 cost estimation
