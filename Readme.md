@@ -44,34 +44,46 @@ Code we used to work with predicates such as getting their average subject bindi
 ### util package
 **Scripts and helpful code used in our work.**
 * [BindPair.java](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/util/BindPair.java)
-    Simple pair of doubles
+    A Simple pair of doubles.
 * [ChangeCostJsonFolder.java](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/util/ChangeCostJsonFolder.java)
     Script for changing the values of a folder of [QueryWrapper.java](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/util/QueryWrapper.java)
-    files, like our [ground_truth folder](dataset/ground_truth/all_queries.7z)
+    files, like our [ground_truth folder](dataset/ground_truth/all_queries.7z).
 * [CompareCostEstimations.java](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/util/CompareCostEstimations.java)
-    Compare all methods in package [costEstimationMethods](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/costEstimationMethods)
+    Compare all methods in package [costEstimationMethods](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/costEstimationMethods).
 * [FilterLogFile.java](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/util/FilterLogFile.java)
-    Deal with big log file of SPARQL queries
+    Deal with big log file of SPARQL queries.
 * [FindOptimalFactor.java](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/util/FindOptimalFactor.java)
     Find the optimal factor of [Method 3](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/costEstimationMethods/Method3_starShapedJoin.java) or
-    [Method 4](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/costEstimationMethods/Method4_filter.java)
+    [Method 4](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/costEstimationMethods/Method4_filter.java).
 * [QueryCostDatabase.java](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/util/QueryCostDatabase.java)
-    Build a database from [QueryWrapper.java](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/util/QueryWrapper.java) files
+    Build a database from [QueryWrapper.java](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/util/QueryWrapper.java) files.
 * [QueryWrapper.java](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/util/QueryWrapper.java)
-    Store interesting data relating to a Query, its execution and cost estimating methods
+    Store interesting data relating to a Query, its execution and cost estimating methods.
 * [SplitDataset.java](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/util/SplitDataset.java)
-    What we used to split the dataset into two in order to base optimizations on one half and
-     and run tests on the other avoiding any biases
+    What we used to split the dataset into two in order to base optimizations on one half
+    and run tests on the other avoiding any biases.
 * [TSV.java](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/util/TSV.java)
-    Code for dealing with tsv formatting
+    Code for dealing with tsv formatting.
 
 
-## Datset Description
+## Dataset Description
 **We provide a complete dataset, with results and our ground-truth**
 * ground_truth folder contains:
   * [all_queries.7z](dataset/ground_truth/all_queries.7z) All the queries we gathered, in .json
     [QueryWrapper.java](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/util/QueryWrapper.java) files.
-   Each file contains data about a query with its execution data.
+   Each .json file contains is the serialized from of QueryWrapper.java and contains the following fields:
+     1. a unique query id
+     2. the SPARQL query
+     3. it's equivalent SPARQL-LD query
+     4. the query pattern
+     5. the real cost we got when executing the query (see timestamp below)
+     6. the method 1 cost estimation
+     7. the method 2 cost estimation
+     8. the method 3 cost estimation
+     9. the method 4 cost estimation
+     10. the timestamp of our real cost execution
+     11. a list of all the uris that were access during the execution
+
   * [ground_truth.tsv](dataset/ground_truth/ground_truth.tsv) a tab-separated file containing the gist from all data queries from above. Each line represents a
   different query and contains the following:
     1. a unique query id
@@ -81,7 +93,17 @@ Code we used to work with predicates such as getting their average subject bindi
 
 * results
 
-    **We calculated the accuracy of our methods using different queries (non-biased) from the ones we optimized the methods for (biased).**
+**We calculated the accuracy of our methods using different queries (non-biased) from the ones we optimized the methods for (biased).** \
+
+Each file below contains the following columns:
+1. a unique query id
+2. the SPARQL query
+3. The estimated cost of [Method 1](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/costEstimationMethods/Method1_noKnowledgeCostEst.java)
+4. The estimated cost of [Method 2](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/costEstimationMethods/Method2_predicatesDataCostEst.java)
+5. The estimated cost of [Method 3](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/costEstimationMethods/Method3_starShapedJoin.java)
+6. The estimated cost of [Method 4](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/costEstimationMethods/Method4_filter.java)
+
+The folder contains the following files:
   * [QueryCostDatabase_OnlyMethod3Queries.tsv](dataset/results/QueryCostDatabase_OnlyMethod3Queries.tsv) Accuracy of
         [Method 3](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/costEstimationMethods/Method3_starShapedJoin.java) on queries with star-shaped joins.
   * [QueryCostDatabase_OnlyMethod4Queries.tsv](dataset/results/QueryCostDatabase_OnlyMethod4Queries.tsv) Accuracy of
