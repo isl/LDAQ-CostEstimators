@@ -27,7 +27,7 @@ Each method below extends its previous method.
     considering SPARQL filter clauses.
 
 
-## Brief description of JAVA packages and contents:
+## Brief description of JAVA packages and classes:
 
 ### costEstimationMethods package
 All 4 cost estimation methods as described above.
@@ -91,7 +91,6 @@ Code we used to work with predicates such as getting their average subject bindi
             star-shaped joins.
   * [QueryCostDatabase.tsv](dataset/results/QueryCostDatabase.tsv) Comparing all of our methods on our non-biased queries.
 
----
 
 ## External Dependencies
 * [Apache Jena 3.16.0](https://search.maven.org/artifact/org.apache.jena/jena-arq/3.16.0/jar) Work with SPARQL queries
