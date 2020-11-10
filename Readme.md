@@ -1,7 +1,7 @@
 # Estimating the Cost of Link Traversal-based Execution of SPARQL Queries
 
 This library allows the user to estimate the execution cost of a
-[SPARQL-LD](https://github.com/anskl/sparql-ld) query.
+[SPARQL-LD](https://github.com/anskl/sparql-ld) query.\
 Given a SPARQL query, the user can:
 1. transform it to its equivalent SPARQL-LD (possible in most cases) using
    [Transform.java](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/ldaq/Transform.java).
@@ -9,16 +9,15 @@ Given a SPARQL query, the user can:
    [methods](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/costEstimationMethods).
 3. Decide whether to proceed with the link traversal-based execution.
 
----
 
 ## Brief description of our four cost estimation methods.
 Each method below extends its previous method.
 1. [Method 1 - No prior knowledge](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/costEstimationMethods/Method1_noKnowledgeCostEst.java) \
     Estimate the query cost execution without assuming anything about
-    its content (e.g. known predicates)
+    its content (e.g. known predicates).
 2. [Method 2 - Known predicate bindings](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/costEstimationMethods/Method2_predicatesDataCostEst.java) \
     Estimate the query cost execution by taking into consideration known
-    predicates with their average object and subject bindings
+    predicates with their average object and subject bindings.
 3. [Method 3 - Star-shaped Joins](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/costEstimationMethods/Method3_starShapedJoin.java) \
     Estimate the query cost execution by extending Method 2 and taking
     into consideration cost limiting star-shaped joins.
@@ -27,7 +26,6 @@ Each method below extends its previous method.
     Estimate the query cost execution by extending Method 3, in addition to
     considering SPARQL filter clauses.
 
----
 
 ## Brief description of JAVA packages and contents:
 
@@ -67,7 +65,6 @@ Code we used to work with predicates such as getting their average subject bindi
 * [TSV.java](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/util/TSV.java)
     Code for dealing with tsv formatting
 
----
 
 ## Datset Description
 **We provide a complete dataset, with results and our ground-truth**
