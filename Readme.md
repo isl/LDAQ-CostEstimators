@@ -92,7 +92,7 @@ Code we used to work with predicates such as getting their average subject bindi
 
 * results
 
-**We calculated the accuracy of our methods using different queries (non-biased) from the ones we optimized the methods for (biased).** \
+**We calculated the accuracy of our methods using different queries (non-biased) from the ones we optimized the methods for (biased).** 
 
 Each file below contains the following columns:
 1. a unique query id
