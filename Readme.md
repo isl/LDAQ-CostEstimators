@@ -69,9 +69,8 @@ Code we used to work with predicates such as getting their average subject bindi
 ## Dataset Description
 **We provide a complete dataset, with results and our ground-truth**
 * ground_truth folder contains:
-  * [all_queries.7z](dataset/ground_truth/all_queries.7z) All the queries we gathered, in .json
-    [QueryWrapper.java](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/util/QueryWrapper.java) files.
-   Each .json file contains is the serialized from of QueryWrapper.java and contains the following fields:
+  * [all_queries.7z](dataset/ground_truth/all_queries.7z) All the queries we gathered, in .json files.
+   Each .json file is serialized in [QueryWrapper.java](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/util/QueryWrapper.java) and contains the following fields:
      1. a unique query id
      2. the SPARQL query
      3. its equivalent SPARQL-LD query
@@ -84,7 +83,7 @@ Code we used to work with predicates such as getting their average subject bindi
      10. the timestamp of our real cost execution
      11. a list of all the uris that were access during the execution
 
-  * [ground_truth.tsv](dataset/ground_truth/ground_truth.tsv) a tab-separated file containing the gist from all data queries from above. Each line represents a
+  * [ground_truth.tsv](dataset/ground_truth/ground_truth.tsv) a tab-separated file containing all queries. Each line represents a
   different query and contains the following:
     1. a unique query id
     2. the SPARQL query
