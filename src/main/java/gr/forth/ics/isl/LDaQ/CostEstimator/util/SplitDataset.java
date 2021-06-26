@@ -159,17 +159,32 @@ public class SplitDataset {
         long unbiased_m4_strict =
                 Files.walk(in.resolve("unbiased_m4_strict")).filter(f -> f.toString().contains(".json")).count();
 
-        StringBuilder sb = new StringBuilder();
-        sb.append(biased + unbiased).append("\tqueries in total").append('\n');
-        sb.append(biased).append("\t biased queries").append('\n');
-        sb.append(unbiased).append("\t unbiased queries").append('\n');
-        sb.append(biased_m3).append("\t biased_m3 queries").append('\n');
-        sb.append(unbiased_m3).append("\t unbiased_m3 queries").append('\n');
-        sb.append(biased_m4).append("\t biased_m4 queries").append('\n');
-        sb.append(unbiased_m4).append("\t unbiased_m4 queries").append('\n');
-        sb.append(biased_m4_strict).append("\t biased_m4_strict queries").append('\n');
-        sb.append(unbiased_m4_strict).append("\t unbiased_m4_strict queries").append('\n');
-
-        Files.writeString(outFile, sb.toString());
+        final String sb = (biased + unbiased) + "\tqueries in total" + '\n' +
+                          biased + "\t biased queries" + '\n' +
+                          unbiased + "\t unbiased queries" + '\n' +
+                          biased_m3 + "\t biased_m3 queries" + '\n' +
+                          unbiased_m3 + "\t unbiased_m3 queries" + '\n' +
+                          biased_m4 + "\t biased_m4 queries" + '\n' +
+                          unbiased_m4 + "\t unbiased_m4 queries" + '\n' +
+                          biased_m4_strict + "\t biased_m4_strict queries" + '\n' +
+                          unbiased_m4_strict + "\t unbiased_m4_strict queries" + '\n';
+        Files.writeString(outFile, sb);
     }
+
+    // public static void main(String[] args) {
+    //     try {
+    //         // split(Path.of("/Users/ansk/Downloads/thesis/all_queries"));
+    //         method3Applies(Path.of("/Users/ansk/Downloads/thesis/biased"),
+    //                        Path.of("/Users/ansk/Downloads/thesis/biased_m3"));
+    //         method3Applies(Path.of("/Users/ansk/Downloads/thesis/unbiased"),
+    //                        Path.of("/Users/ansk/Downloads/thesis/unbiased_m3"));
+    //         method3Applies(Path.of("/Users/ansk/Downloads/thesis/biased"),
+    //                        Path.of("/Users/ansk/Downloads/thesis/biased_m4"));
+    //         method3Applies(Path.of("/Users/ansk/Downloads/thesis/unbiased"),
+    //                        Path.of("/Users/ansk/Downloads/thesis/unbiased_m4"));
+    //     } catch (IOException e) {
+    //         e.printStackTrace();
+    //     }
+    //
+    // }
 }

@@ -76,7 +76,7 @@ public class CompareCostEstimations {
                 Files.delete(back);
             Files.copy(txtOutput, back);
         } catch (IOException e) {
-            System.err.println("could not write to " + txtOutput.toString());
+            System.err.println("could not write to " + txtOutput);
         }
         return comparison;
     }

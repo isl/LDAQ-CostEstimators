@@ -20,7 +20,7 @@ import java.util.Map;
 public class Method2_predicatesDataCostEst extends Method1_noKnowledgeCostEst {
 
     private static final Map<String, BindPair> knownPredicates =
-            BindPair.getBindings(Path.of("textFiles/knownPredicatesBindings.csv"));
+            BindPair.getBindings(Path.of("DBpediaPredicateStats.csv"));
 
     /**
      * Estimate cost based on type of predicate, previous cost and other factors.
