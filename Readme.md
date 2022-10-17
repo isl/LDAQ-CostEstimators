@@ -1,47 +1,34 @@
 # Estimating the Cost of Link Traversal-based Execution of SPARQL Queries
 
-This library allows the user to estimate the execution cost of a
-[SPARQL-LD](https://github.com/anskl/sparql-ld) query.\
-Given a SPARQL query, the user can:
-1. transform it to its equivalent SPARQL-LD (possible in most cases) using
-   [Transform.java](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/ldaq/Transform.java).
-2. Estimate its execution cost using one of our
-   [methods](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/costEstimationMethods).
-3. Decide whether to proceed with the link traversal-based execution.
+This library provides a set of methods that allow estimating the cost of executing a SPARQL query through zero-knowledge link traversal. 
 
 
 ## Brief description of our four cost estimation methods.
 Each method below extends its previous method.
 1. [Method 1 - No prior knowledge](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/costEstimationMethods/Method1_noKnowledgeCostEst.java) \
-    Estimate the query cost execution without assuming anything about
-    its content (e.g. known predicates).
+    Estimate the query cost execution without assuming anything about its predicates. 
 2. [Method 2 - Known predicate bindings](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/costEstimationMethods/Method2_predicatesDataCostEst.java) \
-    Estimate the query cost execution by taking into consideration known
-    predicates with their average object and subject bindings.
+    Estimate the query cost execution by taking into consideration known predicates with their average object and subject bindings.
 3. [Method 3 - Star-shaped Joins](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/costEstimationMethods/Method3_starShapedJoin.java) \
-    Estimate the query cost execution by extending Method 2 and taking
-    into consideration cost limiting star-shaped joins.
+    Estimate the query cost execution by extending Method 2 and taking into consideration cost limiting star-shaped joins.
 4. [Method 4 - Filters](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/costEstimationMethods/Method4_filter.java) \
-    **Our most complete method** \
-    Estimate the query cost execution by extending Method 3, in addition to
-    considering SPARQL filter clauses.
+    Estimate the query cost execution by extending Method 3 by considering SPARQL filter clauses.
 
 
 ## Brief description of JAVA packages and classes:
 
-### costEstimationMethods package
-All 4 cost estimation methods as described above.
+### Package 'costEstimationMethods'
+The four cost estimation methods as described above.
 
-### ldaq package
-Code for checking whether a SPARQL query is linked-data answerable,
-transforming it to its equivalent SPARQL-LD etc. \
+### Package 'ldaq'
+Code for checking whether a SPARQL query is linked-data answerable as well as transforming it to its equivalent SPARQL-LD query that evaluates the query through zero-knowledge link traversal. \
 See [LDaQ](https://github.com/fafalios/LDaQ).
 
-### predicateStats package
+### Package 'predicateStats'
 Mainly used for [Method 2](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/costEstimationMethods/Method2_predicatesDataCostEst.java). \
 Code we used to work with predicates such as getting their average subject bindings.
 
-### util package
+### Package 'util'
 **Scripts and helpful code used in our work.**
 * [BindPair.java](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/util/BindPair.java)
     A Simple pair of doubles.
