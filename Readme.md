@@ -118,3 +118,8 @@ The folder contains the following files:
 * [Json](https://search.maven.org/artifact/org.json/json/20200518/bundle) Build Json objects, used in
       [DbpediaPredicateAverageHttp.java](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/predicateStats/DbpediaPredicateAverageHttp.java)
 * [Gson]() Serialize Java objects into json files, used in [QueryWrapper.java](src/main/java/gr/forth/ics/isl/LDaQ/CostEstimator/util/QueryWrapper.java)
+
+
+## Acknowledgements
+
+This work has received funding from the European Union's Horizon 2020 research and innovation programme under the Marie Sklodowska-Curie grant agreement No 890861 (<a href="https://reknow.ics.forth.gr/">Project ReKnow</a>). 
